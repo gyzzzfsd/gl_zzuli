@@ -1,0 +1,29 @@
+# 环境与密钥
+.env
+.env.local
+*.env.bak
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 运行期数据（上传文件、解析产物、日志）
+backend/data/
+backend/.pytest_cache/
+
+# 前端
+node_modules/
+dist/
+.vite/
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
