@@ -27,3 +27,8 @@ Thumbs.db
 
 # 日志
 *.log
+# 评估产物（逐条答案与报告随数据变化，不入库；eval/baseline.json 需入库供门禁比对）
+eval/reports/
+
+# 本地文档与设计稿（在工作区维护，不入库）
+docs/

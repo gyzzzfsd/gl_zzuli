@@ -92,7 +92,7 @@ class RrfNode(BaseNode):
             rrf_inputs: 各路的搜索结果+权重
             _rrf_k: 平滑参数通常取60，如果头部排名的文档影响更大，k调小 如果向兼容多个排名的文档，k调整大一些
             _top_k: 合并完之后，返回的文档数
-        rrf（score）= 参考课件公式
+        rrf（score）= Σ 权重 / (k + rank)，rank 从 1 开始
         Returns:
            合并以及排序后的文档
 

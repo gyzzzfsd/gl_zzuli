@@ -1,0 +1,20 @@
+# 评估环境依赖（与 backend/requirements.txt 分开安装）
+#
+# 为什么隔离：ragas 会拉 datasets / langchain 系列，和主运行环境的
+# langgraph==1.0.5 存在版本竞争；评估用独立 venv 或至少独立 requirements，
+# 避免"为了评个分把线上依赖升挂了"。
+#
+# 安装：
+#   python -m venv .venv-eval
+#   .venv-eval\Scripts\pip install -r backend/requirements.txt -r requirements-eval.txt
+
+# RAGAS 0.2.x：Dataset 用 reference 列、指标可实例化；本项目适配层已兼容 0.1/0.2
+# 0.2.15 是 0.2 系列最后一个版本，已在 llm1（Python 3.12 / langchain-core 1.2.31）实测可导入
+ragas==0.2.15
+
+# ragas 的 DataFrame 输出与报告统计
+pandas>=2.0,<3.0
+
+# 裁判 LLM 的 LangChain 封装（项目主依赖里已有，这里显式钉住下限）
+langchain-core>=0.3
+langchain-openai>=0.2
